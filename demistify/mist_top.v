@@ -320,7 +320,7 @@ osd #(.OSD_AUTO_CE(1'b0)) osd
 scandoubler scandoubler
 (
 	.clock   (clock56),
-	.enable  (vga    ),
+	.enable  (~vga    ),
 	.ice     (cep1x  ),
 	.iblank  ({ vblank, hblank }),
 	.isync   ({  vsync,  hsync }),
@@ -501,15 +501,19 @@ wire vmm = memP2 >= 8'hFC;
 wire ram = memP2 >= maxram;
 wire rom = memP2 <= romP;
 
-reg[18:0] ic;
-always @(posedge clock32, negedge ready) if(!ready) ic <= 1'd0; else if(cecpu) if(iniIo) ic <= ic+1'd1;
+// reg[18:0] ic;
+// always @(posedge clock32, negedge ready) if(!ready) ic <= 1'd0; else if(cecpu) if(iniIo) ic <= ic+1'd1;
 
-wire       iniIo = !ic[18];
-wire[16:0] iniA  = ic[17:1];
-wire[ 7:0] iniD;
-wire       iniW  = ic[0];
+// wire       iniIo = !ic[18];
+// wire[16:0] iniA  = ic[17:1];
+// wire[ 7:0] iniD;
+// wire       iniW  = ic[0];
+wire       iniIo = 1'b0;
+wire       iniA = 1'b0;
+wire       iniD = 1'b0;
+wire       iniW = 1'b0;
 
-rom #(128) rom8(clock32, iniA, iniD);
+//rom #(128) rom8(clock32, iniA, iniD);
 dpr #(64) dpr(clock56, memA1, memQ1, clock32, memA2[15:0], memD2, memW2 && vmm);
 
 wire ready;
