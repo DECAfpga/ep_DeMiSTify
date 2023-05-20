@@ -1,4 +1,5 @@
 set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) mist_top.v]
+set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) project.sdc]
 set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ../hdl/ep.v]
 set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ../hdl/cpu.v]
 set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ../hdl/dpr.v]

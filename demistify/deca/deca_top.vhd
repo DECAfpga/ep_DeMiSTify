@@ -431,7 +431,6 @@ begin
 	-- HDMI_LRCLK  <= i2s_Lr_o;
 	-- HDMI_I2S(0) <= i2s_D_o;
 
-
 	guest : component mist_top
 		port map
 		(
@@ -488,6 +487,7 @@ begin
 			-- PS2M_CLK => ps2_mouse_clk_in,
 			-- PS2M_DAT => ps2_mouse_dat_in
 		);
+	
 
 
 	-- Pass internal signals to external SPI interface
