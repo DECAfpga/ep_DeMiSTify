@@ -115,7 +115,7 @@ user_io #(.STRLEN(154), .SD_IMAGES(2)) user_io
 	.conf_chr        (8'd0   ),
 	.clk_sys         (clock32),
 	.clk_sd          (clock32),
-	.SPI_CLK         (SPI_CLK),
+	.SPI_CLK         (SPI_SCK),
 	.SPI_SS_IO       (CONF_DATA0),
 	.SPI_MOSI        (SPI_DI ),
 	.SPI_MISO        (SPI_DO ),
