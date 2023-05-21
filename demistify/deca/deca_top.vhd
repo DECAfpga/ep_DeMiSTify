@@ -336,7 +336,8 @@ begin
 
 	
 	JOYX_SEL_O          <= '1';
-	joya                <= "11" & JOY1_B2_P9 & JOY1_B1_P6 & JOY1_RIGHT & JOY1_LEFT & JOY1_DOWN & JOY1_UP;
+	-- joya                <= "11" & JOY1_B2_P9 & JOY1_B1_P6 & JOY1_RIGHT & JOY1_LEFT & JOY1_DOWN & JOY1_UP;
+	joya                <= "11" & JOY1_B2_P9 & JOY1_B1_P6 & JOY1_UP & JOY1_DOWN & JOY1_LEFT & JOY1_RIGHT;
 	joyb                <= (others => '1');
 	joyc                <= (others => '1');
 	joyd                <= (others => '1');
@@ -472,6 +473,14 @@ begin
 			-- vga_x_b   => vga_x_b,
 			-- vga_x_hs  => vga_x_hs,
 			-- vga_x_vs  => vga_x_vs,
+
+			--JOYSTICK
+			JOY1 	=> joya,
+			JOY2 	=> joyb,
+
+			--MOUSE
+			ps2mDQ	=> PS2_MOUSE_DAT,
+			ps2mCk  => PS2_MOUSE_CLK,
 
 			--AUDIO
 			DAC_L   => dac_l,

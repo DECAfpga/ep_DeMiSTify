@@ -305,6 +305,14 @@ begin
 			VGA_G      => vga_green(7 downto 2),
 			VGA_B      => vga_blue(7 downto 2),
 
+			--JOYSTICK
+			JOY1 	=> joya,
+			JOY2 	=> joyb,
+
+			--MOUSE
+			ps2mDQ	=> PS2_MOUSE_DAT,
+			ps2mCk  => PS2_MOUSE_CLK,
+						
 			--AUDIO
 			DAC_L   => dac_l,
 			DAC_R   => dac_r,

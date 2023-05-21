@@ -65,13 +65,19 @@ constant demistify_serialdebug : std_logic := '0';
 			VGA_G		:	 OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
 			VGA_B		:	 OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
 
-			AUDIO_L  	: out std_logic;
-			AUDIO_R  	: out std_logic;
+			AUDIO_L  	: 	OUT std_logic;
+			AUDIO_R  	: 	OUT std_logic;
 			--D AUDIO 
-			DAC_L       : out signed(15 downto 0);
-			DAC_R       : out signed(15 downto 0);
+			DAC_L       : 	OUT signed(15 downto 0);
+			DAC_R       : 	OUT signed(15 downto 0);
+
+			JOY1		: 	IN STD_LOGIC_VECTOR(7 DOWNTO 0) := "11111111";
+			JOY2		: 	IN STD_LOGIC_VECTOR(7 DOWNTO 0) := "11111111";
+
+			ps2mDQ		:	INOUT std_logic;
+			ps2mCk		:	INOUT std_logic;
 			
-			EAR			: IN STD_LOGIC
+			EAR			: 	IN STD_LOGIC
 		);
 	END COMPONENT;
 	

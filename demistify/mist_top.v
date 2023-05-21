@@ -44,6 +44,12 @@ module mist_top
 	`ifdef DEMISTIFY
     output [15:0] DAC_L,
     output [15:0] DAC_R,
+
+	input  [7:0]  joy1,
+	input  [7:0]  joy2,
+
+	inout         ps2mDQ,
+	inout         ps2mCk,
     `endif
 
 	output [12:0] SDRAM_A,
@@ -66,16 +72,7 @@ wire[17:0] rgb;
 
 wire[ 1:0] dramDQM;
 
-wire       ps2mDQ;
-wire       ps2mCk;
-
-wire       joyCk;
-wire       joyLd;
-wire       joyS;
-wire       joyD;
-
 wire[ 1:0] dsg;
-//wire[ 2:0] i2s;
 
 //-------------------------------------------------------------------------------------------------
 
@@ -363,9 +360,9 @@ wire[7:0] xaxis;
 wire[7:0] yaxis;
 ps2m mouse(clock32, reset, ps2mDQ, ps2mCk, mbtns, xaxis, yaxis);
 
-wire[7:0] joy1;
-wire[7:0] joy2;
-joystick joystick(clock32, joyCk, joyLd, joyS, joyD, joy1, joy2);
+// wire[7:0] joy1;
+// wire[7:0] joy2;
+// joystick joystick(clock32, joyCk, joyLd, joyS, joyD, joy1, joy2);
 
 reg F9 = 1'b1;
 always @(posedge clock32) if(strb) case(code) 8'h01: F9 <= make; endcase
@@ -450,8 +447,8 @@ ep ep
 	.mbtns  (mbtns  ),
 	.xaxis  (xaxis  ),
 	.yaxis  (yaxis  ),
-	.joy1   (joy1   ),
-	.joy2   (joy2   ),
+	.joy1   (~joy1   ),
+	.joy2   (~joy2   ),
 	.fddCe  (fddCe  ),
 	.fddIo  (fddIo  ),
 	.fddRd  (fddRd  ),
