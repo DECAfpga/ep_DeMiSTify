@@ -306,8 +306,8 @@ begin
 			VGA_B      => vga_blue(7 downto 2),
 
 			--AUDIO
-			-- DAC_L   => dac_l,
-			-- DAC_R   => dac_r,
+			DAC_L   => dac_l,
+			DAC_R   => dac_r,
 			AUDIO_L => sigma_l,
 			AUDIO_R => sigma_r,
 

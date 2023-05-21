@@ -474,8 +474,8 @@ begin
 			-- vga_x_vs  => vga_x_vs,
 
 			--AUDIO
-			-- DAC_L   => dac_l,
-			-- DAC_R   => dac_r,
+			DAC_L   => dac_l,
+			DAC_R   => dac_r,
 			AUDIO_L => sigma_l,
 			AUDIO_R => sigma_r,
 
